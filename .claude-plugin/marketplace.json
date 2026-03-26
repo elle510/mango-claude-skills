@@ -1,0 +1,23 @@
+{
+  "name": "mango-claude-skills",
+  "owner": {
+    "name": "elle510"
+  },
+  "metadata": {
+    "description": "Claude Code 개발 워크플로우 스킬 모음",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dev-skills",
+      "description": "개발 워크플로우 자동화 스킬 모음 — git 커밋, CLAUDE.md 리뷰, 스킬 제작",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/commit",
+        "./skills/claudemd-review",
+        "./skills/make-skill"
+      ]
+    }
+  ]
+}

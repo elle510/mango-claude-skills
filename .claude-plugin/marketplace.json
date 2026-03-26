@@ -10,12 +10,39 @@
   "plugins": [
     {
       "name": "mango-skills",
-      "description": "개발 워크플로우 자동화 스킬 모음 — git 커밋, CLAUDE.md 리뷰, 스킬 제작",
+      "description": "개발 워크플로우 자동화 스킬 전체 묶음 — commit, claudemd-review, make-skill",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/commit",
         "./skills/claudemd-review",
+        "./skills/make-skill"
+      ]
+    },
+    {
+      "name": "commit",
+      "description": "git 변경사항을 Conventional Commits 형식으로 커밋하는 스킬",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/commit"
+      ]
+    },
+    {
+      "name": "claudemd-review",
+      "description": "Claude Code 공식 원칙 기준으로 CLAUDE.md 파일을 감사하는 스킬",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/claudemd-review"
+      ]
+    },
+    {
+      "name": "make-skill",
+      "description": "Claude Code 스킬을 생성, 수정, 리뷰하는 스킬",
+      "source": "./",
+      "strict": false,
+      "skills": [
         "./skills/make-skill"
       ]
     }

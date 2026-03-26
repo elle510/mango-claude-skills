@@ -4,9 +4,24 @@ Claude Code 개발 워크플로우 스킬 모음.
 
 ## 설치
 
+먼저 마켓플레이스에 등록합니다:
+
 ```bash
 /plugin marketplace add elle510/mango-claude-skills
+```
+
+### 전체 설치 (번들)
+
+```bash
 /plugin install mango-skills@mango-claude-skills
+```
+
+### 개별 설치
+
+```bash
+/plugin install commit@mango-claude-skills
+/plugin install claudemd-review@mango-claude-skills
+/plugin install make-skill@mango-claude-skills
 ```
 
 ## 스킬 목록

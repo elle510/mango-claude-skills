@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "dev-skills",
+      "name": "mango-skills",
       "description": "개발 워크플로우 자동화 스킬 모음 — git 커밋, CLAUDE.md 리뷰, 스킬 제작",
       "source": "./",
       "strict": false,

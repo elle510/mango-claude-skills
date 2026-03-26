@@ -6,7 +6,7 @@ Claude Code 개발 워크플로우 스킬 모음.
 
 ```bash
 /plugin marketplace add elle510/mango-claude-skills
-/plugin install dev-skills@mango-claude-skills
+/plugin install mango-skills@mango-claude-skills
 ```
 
 ## 스킬 목록

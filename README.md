@@ -70,6 +70,44 @@ claude plugin update make-skill@mango-claude-skills
 /plugin marketplace update
 ```
 
+## 삭제
+
+**플러그인 삭제:**
+
+```bash
+/plugin uninstall mango-skills@mango-claude-skills
+```
+
+**개별 스킬 삭제:**
+
+```bash
+/plugin uninstall commit@mango-claude-skills
+/plugin uninstall claudemd-review@mango-claude-skills
+/plugin uninstall make-skill@mango-claude-skills
+```
+
+**마켓플레이스 등록 해제** (등록된 소스 제거 + 해당 마켓플레이스에서 설치한 플러그인도 함께 제거):
+
+```bash
+/plugin marketplace remove mango-claude-skills
+```
+
+**설정 파일 수동 정리** (커맨드로 제거가 안 될 경우):
+
+`.claude/settings.json`에서 `enabledPlugins` 항목을 비웁니다:
+
+```json
+{
+  "enabledPlugins": {}
+}
+```
+
+`.claude/settings.local.json` 파일을 삭제합니다:
+
+```bash
+rm .claude/settings.local.json
+```
+
 ### Auto-update 설정
 
 > 이 설정은 플러그인을 **설치한 사용자**가 자신의 Claude Code에서 직접 합니다.

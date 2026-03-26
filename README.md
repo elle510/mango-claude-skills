@@ -46,6 +46,39 @@ git 변경사항을 분석해 Conventional Commits 형식으로 메시지를 제
 
 ## 업데이트
 
+### 플러그인 내용 업데이트
+
+마켓플레이스 카탈로그 갱신과 플러그인 실제 내용 업데이트는 별개의 커맨드입니다.
+
+**전체 번들 업데이트:**
+
+```bash
+claude plugin update mango-skills@mango-claude-skills
+```
+
+**개별 스킬 업데이트:**
+
+```bash
+claude plugin update commit@mango-claude-skills
+claude plugin update claudemd-review@mango-claude-skills
+claude plugin update make-skill@mango-claude-skills
+```
+
+**마켓플레이스 카탈로그만 갱신** (새 플러그인 추가 여부 반영):
+
 ```bash
 /plugin marketplace update
 ```
+
+### Auto-update 설정
+
+> 이 설정은 플러그인을 **설치한 사용자**가 자신의 Claude Code에서 직접 합니다.
+
+서드파티 마켓플레이스는 auto-update가 기본 **비활성화**입니다. 활성화하면 Claude Code 시작 시 마켓플레이스 갱신 + 설치된 플러그인 업데이트가 자동으로 실행됩니다.
+
+**설정 방법 (UI):**
+
+1. `/plugin` 실행
+2. `Marketplaces` 탭 선택
+3. `mango-claude-skills` 선택
+4. `Enable auto-update` 선택

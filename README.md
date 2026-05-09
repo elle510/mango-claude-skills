@@ -29,6 +29,7 @@ Claude Code 개발 워크플로우 스킬 모음.
 ### `commit`
 
 git 변경사항을 분석해 Conventional Commits 형식으로 메시지를 제안하고 커밋을 실행한다.
+보호 브랜치(`main`/`master`) 직접 커밋을 차단하고, `.env` · 인증서 · 빌드 산출물(`dist/`, `node_modules/` 등) 같은 위험 파일을 사전 스캔해 사용자 확인 후에만 add 한다.
 
 **호출:** `/commit`
 

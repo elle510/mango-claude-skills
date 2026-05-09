@@ -9,7 +9,7 @@ mango-claude-skills/
 ├── .claude-plugin/
 │   └── marketplace.json   # 플러그인 등록 설정
 ├── skills/
-│   ├── commit/            # git 커밋 자동화
+│   ├── commit/            # git 커밋 자동화 (보호 브랜치 차단 + 시크릿/산출물 스캔)
 │   ├── claudemd-review/   # CLAUDE.md 감사
 │   └── make-skill/        # 스킬 제작 도우미
 └── README.md

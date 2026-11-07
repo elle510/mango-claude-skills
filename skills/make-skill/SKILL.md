@@ -81,15 +81,22 @@ Claude Code 스킬을 올바른 구조와 원칙에 따라 만든다.
 SKILL.md에 API 문서, 긴 예시, 템플릿 등이 들어가면 `references/`나 `assets/`로 분리한다.
 SKILL.md에는 "필요하면 X 파일을 읽어라"는 포인터만 남긴다.
 
-### 5단계: settings.json 등록
+### 5단계: 배치 위치 확인
 
-스킬을 만든 후에는 `/update-config` 스킬로 `settings.json`에 등록해야 한다.
-등록하지 않으면 `/skill-name`으로 호출할 수 없다.
+스킬은 `settings.json` 등록 없이 폴더 위치만으로 자동 인식된다.
+
+- 프로젝트 스킬: `.claude/skills/{skill-name}/SKILL.md`
+- 개인 스킬: `~/.claude/skills/{skill-name}/SKILL.md`
+- 플러그인 스킬: 플러그인 루트의 `skills/{skill-name}/SKILL.md`
+
+frontmatter의 `name`이 폴더명과 같아야 `/{skill-name}`으로 호출된다.
 
 ### 6단계: 검증
 
+이 스킬 폴더(이 SKILL.md가 있는 디렉토리)의 `scripts/validate-skill.sh`를 대상 스킬 폴더에 대해 실행한다.
+
 ```bash
-bash .claude/skills/make-skill/scripts/validate-skill.sh .claude/skills/{skill-name}
+bash <make-skill 폴더>/scripts/validate-skill.sh .claude/skills/{skill-name}
 ```
 
 결과에서 누락된 항목을 보완한다.
@@ -147,5 +154,5 @@ N개 항목 중 N개 통과. 수정이 필요한 경우 "개선해줘"로 요청
 - **Description 필드 실수**: "이 스킬은 X를 한다"처럼 요약 쓰지 말 것. "사용자가 X를 하려 할 때" 형식의 트리거 조건으로 써야 한다.
 - **모든 것을 SKILL.md에 넣지 말 것**: 컨텍스트 낭비. 상세 내용은 references/로 분리하고 포인터만 남긴다.
 - **Gotchas 섹션 누락**: 처음엔 짧아도 괜찮다. 나중에 Claude가 실수할 때마다 추가한다.
-- **settings.json 등록 누락**: 파일만 만들어선 `/skill-name`으로 호출 안 됨.
+- **잘못된 위치에 생성**: `.claude/skills/{name}/SKILL.md` 구조가 아니면 인식되지 않는다. `settings.json` 등록은 필요 없다.
 - **기존 스킬 덮어쓰기**: 수정 전 반드시 기존 내용을 읽고 시작한다.

@@ -1,5 +1,5 @@
 ---
-name: { skill-name }
+name: skill-name # TODO: 폴더명과 동일한 kebab-case 이름으로 교체 ({ } 로 감싸면 YAML 객체로 파싱됨)
 description: 사용자가 [구체적인 상황/행동]을 할 때 사용한다. [관련 키워드] 포함 시 발동.
 ---
 

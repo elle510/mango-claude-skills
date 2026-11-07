@@ -69,7 +69,8 @@ else
 fi
 
 # 5. Description이 요약형인지 체크 (단순 경고만)
-if grep -qi "이 스킬은.*한다\|스킬입니다" "$SKILL_MD" 2>/dev/null; then
+#    본문 전체가 아니라 frontmatter의 description 줄만 검사한다
+if grep -m1 "^description:" "$SKILL_MD" 2>/dev/null | grep -qi "이 스킬은.*한다\|스킬입니다"; then
   check "Description이 트리거 조건형" "fail" \
     "발동 조건이 요약형으로 보입니다. '사용자가 X를 할 때' 형식으로 바꾸세요."
 else
@@ -85,7 +86,7 @@ fi
 
 # 7. SKILL.md 길이 (100줄 초과 시 분리 권고)
 if [ -f "$SKILL_MD" ]; then
-  LINE_COUNT=$(wc -l < "$SKILL_MD")
+  LINE_COUNT=$(wc -l < "$SKILL_MD" | tr -d ' ')
   if [ "$LINE_COUNT" -le 100 ]; then
     check "SKILL.md 길이 적정 (${LINE_COUNT}줄)" "pass"
   else

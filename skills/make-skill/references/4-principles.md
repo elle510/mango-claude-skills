@@ -72,7 +72,7 @@ Gotchas = Claude가 반복적으로 실수하는 지점의 오답 노트.
 
 ## 원칙 4: Description은 요약이 아니라 트리거 조건이다
 
-settings.json의 description 필드는 Claude가 "이 스킬을 언제 써야 하는가"를 판단하는 신호다.
+SKILL.md frontmatter의 `description` 필드는 Claude가 "이 스킬을 언제 써야 하는가"를 판단하는 신호다.
 
 **나쁜 예 (요약):**
 

@@ -31,7 +31,7 @@ Claude Code 개발 워크플로우 스킬 모음.
 git 변경사항을 분석해 Conventional Commits 형식으로 메시지를 제안하고 커밋을 실행한다.
 보호 브랜치(`main`/`master`) 직접 커밋을 차단하고, `.env` · 인증서 · 빌드 산출물(`dist/`, `node_modules/` 등) 같은 위험 파일을 사전 스캔해 사용자 확인 후에만 add 한다.
 
-**호출:** `/commit`
+**호출:** `/commit` 또는 "커밋해줘"
 
 ### `claudemd-review`
 
@@ -71,6 +71,19 @@ claude plugin update make-skill@mango-claude-skills
 /plugin marketplace update
 ```
 
+### Auto-update 설정
+
+> 이 설정은 플러그인을 **설치한 사용자**가 자신의 Claude Code에서 직접 합니다.
+
+서드파티 마켓플레이스는 auto-update가 기본 **비활성화**입니다. 활성화하면 Claude Code 시작 시 마켓플레이스 갱신 + 설치된 플러그인 업데이트가 자동으로 실행됩니다.
+
+**설정 방법 (UI):**
+
+1. `/plugin` 실행
+2. `Marketplaces` 탭 선택
+3. `mango-claude-skills` 선택
+4. `Enable auto-update` 선택
+
 ## 삭제
 
 **플러그인 삭제:**
@@ -95,29 +108,20 @@ claude plugin update make-skill@mango-claude-skills
 
 **설정 파일 수동 정리** (커맨드로 제거가 안 될 경우):
 
-`.claude/settings.json`에서 `enabledPlugins` 항목을 비웁니다:
+설치 범위에 따라 아래 설정 파일 중 하나의 `enabledPlugins`에 항목이 남아 있습니다.
 
-```json
+| 설치 범위 | 파일 |
+| --------- | ---- |
+| user (기본) | `~/.claude/settings.json` |
+| project | `.claude/settings.json` |
+| local | `.claude/settings.local.json` |
+
+해당 파일에서 `@mango-claude-skills`로 끝나는 키만 지웁니다. 다른 플러그인 항목이나 권한 설정은 그대로 둡니다 (파일 전체를 삭제하거나 `enabledPlugins`를 통째로 비우지 마세요).
+
+```jsonc
 {
-  "enabledPlugins": {}
+  "enabledPlugins": {
+    "mango-skills@mango-claude-skills": true   // ← 이 줄만 삭제
+  }
 }
 ```
-
-`.claude/settings.local.json` 파일을 삭제합니다:
-
-```bash
-rm .claude/settings.local.json
-```
-
-### Auto-update 설정
-
-> 이 설정은 플러그인을 **설치한 사용자**가 자신의 Claude Code에서 직접 합니다.
-
-서드파티 마켓플레이스는 auto-update가 기본 **비활성화**입니다. 활성화하면 Claude Code 시작 시 마켓플레이스 갱신 + 설치된 플러그인 업데이트가 자동으로 실행됩니다.
-
-**설정 방법 (UI):**
-
-1. `/plugin` 실행
-2. `Marketplaces` 탭 선택
-3. `mango-claude-skills` 선택
-4. `Enable auto-update` 선택

@@ -47,4 +47,4 @@ mango-claude-skills/
 
 - **레포**: https://github.com/elle510/mango-claude-skills
 - **브랜치**: main
-- 스킬 수정 후 push하면 `/plugin marketplace update`로 사용자 갱신 가능
+- 스킬 수정 후 push → 사용자는 `/plugin marketplace update`(카탈로그 갱신) 후 `claude plugin update <plugin>@mango-claude-skills`(내용 갱신)로 반영. 카탈로그 갱신만으로는 설치된 스킬 내용이 바뀌지 않음
